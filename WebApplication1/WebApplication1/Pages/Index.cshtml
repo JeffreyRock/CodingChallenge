@@ -1,0 +1,57 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    <form asp-page-handler="Submit">
+        <input type="text" id="txtquery" name="query" size="150" />
+        <br />
+        @Html.DropDownListFor(x => x.value, new SelectList(Model.value), "select a value")
+        <button class="btn-dark">Search</button>
+    </form>
+
+    <form>
+        @if(Model.TableOnline)
+            {
+        <table>
+            <tr>
+                <th>@Html.DisplayNameFor(x => x.users[0].ID)</th>
+                <th>@Html.Display("  ")</th>
+                <th>@Html.DisplayNameFor(x => x.users[0].FirstName)</th>
+                <th>@Html.Display("  ")</th>
+                <th>@Html.DisplayNameFor(x => x.users[0].LastName)</th>
+                <th>@Html.Display("  ")</th>
+                <th>@Html.DisplayNameFor(x => x.users[0].Age)</th>
+                <th>@Html.Display("  ")</th>
+                <th>@Html.DisplayNameFor(x => x.users[0].Profession)</th>
+                <th>@Html.Display("  ")</th>
+                <th>@Html.DisplayNameFor(x => x.users[0].Email)</th>
+            </tr>
+            @foreach (var item in Model.users)
+                {
+                <tr>
+                    <td>@item.ID</td>
+                    <td></td>
+                    <td>@item.FirstName</td>
+                    <td></td>
+                    <td>@item.LastName</td>
+                    <td></td>
+                    <td>@item.Age</td>
+                    <td></td>
+                    <td>@item.Profession</td>
+                    <td></td>
+                    <td>@item.Email</td>
+                </tr>
+                }
+        </table>
+            }
+
+    </form>
+</div>
+<div class="text-lg-left">
+    <h2 class="d-flex"</h2>
+</div>
